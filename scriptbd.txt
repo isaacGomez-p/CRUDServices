@@ -1,0 +1,111 @@
+---------------------------------------
+CREATE DATABASE dbempresa
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Spanish_Mexico.1252'
+    LC_CTYPE = 'Spanish_Mexico.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+--------------------
+CREATE TABLE public.oauth_access_token
+(
+    token_id character varying(256) COLLATE pg_catalog."default" NOT NULL,
+    token bytea,
+    authentication_id character varying(256) COLLATE pg_catalog."default",
+    user_name character varying(256) COLLATE pg_catalog."default",
+    client_id character varying(256) COLLATE pg_catalog."default",
+    authentication bytea,
+    refresh_token character varying(256) COLLATE pg_catalog."default",
+    CONSTRAINT oauth_access_token_pkey PRIMARY KEY (token_id),
+    CONSTRAINT restriccion_unique UNIQUE (token)
+)
+--------------------------------
+CREATE SEQUENCE public.department_id_seq
+    INCREMENT 1
+    START 6
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+--------------------------------
+CREATE TABLE public.department
+(
+    id integer NOT NULL DEFAULT nextval('department_id_seq'::regclass),
+    address character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    name character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    pnumber numeric(19,2) NOT NULL,
+    CONSTRAINT department_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.department
+    OWNER to postgres;
+---------------------------------
+CREATE SEQUENCE public.employee_id_seq
+    INCREMENT 1
+    START 3
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+-----------------------------------
+
+CREATE TABLE public.employee
+(
+    id integer NOT NULL DEFAULT nextval('employee_id_seq'::regclass),
+    birth timestamp without time zone,
+    docnumber numeric(19,2) NOT NULL,
+    genre character(1) COLLATE pg_catalog."default" NOT NULL,
+    name character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    pnumber numeric(10,0) NOT NULL,
+    state boolean NOT NULL,
+    id_department integer NOT NULL,
+    CONSTRAINT employee_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_department_employee FOREIGN KEY (id_department)
+        REFERENCES public.department (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+------------------------------
+CREATE SEQUENCE public.usuario_id_seq
+    INCREMENT 1
+    START 5
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+-------------------------------
+CREATE TABLE public.usuario
+(
+    id integer NOT NULL DEFAULT nextval('usuario_id_seq'::regclass),
+    clave text COLLATE pg_catalog."default" NOT NULL,
+    documento character varying(29) COLLATE pg_catalog."default" NOT NULL,
+    estado boolean NOT NULL,
+    nick character varying(24) COLLATE pg_catalog."default" NOT NULL,
+    nombre character varying(24) COLLATE pg_catalog."default" NOT NULL,
+    idrol integer,
+    CONSTRAINT usuario_pkey PRIMARY KEY (id),
+    CONSTRAINT uk_c73frfmnb66qdcnki0xc5mj59 UNIQUE (nick),
+    CONSTRAINT uk_sqdsrgo7yd5nlfxh382v44rj9 UNIQUE (documento),
+    CONSTRAINT fk_rol FOREIGN KEY (idrol)
+        REFERENCES public.rol (idrol) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+------------------------------------------
+CREATE SEQUENCE public.rol_idrol_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+------------------------------------------
+
+CREATE TABLE public.rol
+(
+    idrol integer NOT NULL DEFAULT nextval('rol_idrol_seq'::regclass),
+    name character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT rol_pkey PRIMARY KEY (idrol)
+)
