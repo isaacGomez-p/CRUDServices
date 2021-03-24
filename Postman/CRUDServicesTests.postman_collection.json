@@ -1,0 +1,666 @@
+{
+	"info": {
+		"_postman_id": "b3ef76d6-b323-49ef-b03b-e790bdd386ba",
+		"name": "CRUDServicesTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/oauth/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "spring2021",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "securecrud",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "oliver",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/departments/read",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoiY2FybG9zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0NzUyNCwiYXV0aG9yaXRpZXMiOlsiVXN1YXJpb28iXSwianRpIjoiNDM2N2UwMmMtY2U0Ni00ZWE4LTgxODktNDBjZjZlMjY3Y2Q0IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.woLPXNZ9mUQCYErcgVUja1GaFljJYxgj4Br_YUuQrFk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/departments/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"departments",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/departments/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoibWFyY28iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNjE2NTQ4MzE5LCJhdXRob3JpdGllcyI6WyJVc3VhcmlvbyJdLCJqdGkiOiJlYTE5OWNmYi1kZWMwLTRjYzktYWQ5Yy1kMDg3OTExNmE4MWQiLCJjbGllbnRfaWQiOiJzZWN1cmVjcnVkIn0.FipMk-LPx95TwxDIC4E3-yPp54ZBQ8H2N_ULw4pJym4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Produc\",\r\n    \"address\" : \"Call11\",\r\n    \"pnumber\" : 98787878\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/departments/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"departments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/departments/readbyid/10",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoiY2FybG9zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0NzUyNCwiYXV0aG9yaXRpZXMiOlsiVXN1YXJpb28iXSwianRpIjoiNDM2N2UwMmMtY2U0Ni00ZWE4LTgxODktNDBjZjZlMjY3Y2Q0IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.woLPXNZ9mUQCYErcgVUja1GaFljJYxgj4Br_YUuQrFk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/departments/readbyid/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"departments",
+						"readbyid",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/departments/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoiY2FybG9zIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0NzUyNCwiYXV0aG9yaXRpZXMiOlsiVXN1YXJpb28iXSwianRpIjoiNDM2N2UwMmMtY2U0Ni00ZWE4LTgxODktNDBjZjZlMjY3Y2Q0IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.woLPXNZ9mUQCYErcgVUja1GaFljJYxgj4Br_YUuQrFk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 6,\r\n    \"name\" : \"asdadsad\",\r\n    \"address\" : \"Av 7 St G\",\r\n    \"pnumber\" : 312131\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/departments/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"departments",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/departments/delete/4",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoib2xpdmVyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0ODAzMywiYXV0aG9yaXRpZXMiOlsiQWRtaW4iXSwianRpIjoiZmVmNDg3NzgtZGJjNC00NjA0LWE0NmItMGExNzczZGNkMzE3IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.JlGWr3eB0AzOeS8ZZTbseJLDzrcbrht4pGvK3oMJq2Y",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/departments/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"departments",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/read",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoibWFyY28iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNjE2NTQ4MzE5LCJhdXRob3JpdGllcyI6WyJVc3VhcmlvbyJdLCJqdGkiOiJlYTE5OWNmYi1kZWMwLTRjYzktYWQ5Yy1kMDg3OTExNmE4MWQiLCJjbGllbnRfaWQiOiJzZWN1cmVjcnVkIn0.FipMk-LPx95TwxDIC4E3-yPp54ZBQ8H2N_ULw4pJym4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/employees/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoib2xpdmVyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0ODAzMywiYXV0aG9yaXRpZXMiOlsiQWRtaW4iXSwianRpIjoiZmVmNDg3NzgtZGJjNC00NjA0LWE0NmItMGExNzczZGNkMzE3IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.JlGWr3eB0AzOeS8ZZTbseJLDzrcbrht4pGvK3oMJq2Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Isaac\",\r\n    \"pnumber\" : 3132888768,\r\n    \"genre\" : \"m\",\r\n    \"state\" : true,\r\n    \"birth\" : \"1999-08-30 10:08:02\",\r\n    \"docnumber\" : 1070989505,\r\n    \"department\" :{\r\n        \"id\" : 5\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoib2xpdmVyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0ODAzMywiYXV0aG9yaXRpZXMiOlsiQWRtaW4iXSwianRpIjoiZmVmNDg3NzgtZGJjNC00NjA0LWE0NmItMGExNzczZGNkMzE3IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.JlGWr3eB0AzOeS8ZZTbseJLDzrcbrht4pGvK3oMJq2Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 3,\r\n    \"name\" : \"Carlos\",\r\n    \"pnumber\" : 3132888768,\r\n    \"genre\" : \"m\",\r\n    \"state\" : true,\r\n    \"birth\" : \"1999-08-30 10:08:02\",\r\n    \"docnumber\" : 1070989519,\r\n    \"department\" :{\r\n        \"id\" : 3\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/delete/3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoib2xpdmVyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0ODAzMywiYXV0aG9yaXRpZXMiOlsiQWRtaW4iXSwianRpIjoiZmVmNDg3NzgtZGJjNC00NjA0LWE0NmItMGExNzczZGNkMzE3IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.JlGWr3eB0AzOeS8ZZTbseJLDzrcbrht4pGvK3oMJq2Y",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/employees/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/readbyid/11",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employees/readbyid/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"readbyid",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/readbydepartment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/readbydepartment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"readbydepartment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/readbynonactive",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/readbynonactive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"readbynonactive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/readbygenre/m",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/readbygenre/m",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"readbygenre",
+						"m"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/readbyadults",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoib2xpdmVyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0MzY0OCwiYXV0aG9yaXRpZXMiOlsiQWRtaW4iXSwianRpIjoiYTFjMjJlYjUtNTJmOS00NzA3LTg0ZDQtMmM5MzcxOWFjY2QzIiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.P0TUCKAdIUdMoia3Q6OprS2vTBdYnHbDwruJRwlUorY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/readbyadults",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"readbyadults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/readbyminors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoib2xpdmVyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0NDU4OCwiYXV0aG9yaXRpZXMiOlsiQWRtaW4iXSwianRpIjoiZjZiMDY1YjAtMGZlZS00ZmRkLWJhNGYtODc5MmJkZTVhNGM1IiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.o8soUyAYo_pnKbsLxwlBCOcrDGQ-X98mZnHUazioEBI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/readbyminors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"readbyminors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/oauth/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "securecrud",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "spring2021",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "marco",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "4321",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/usuarios/read",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2VpZGVtcHJlc2EiXSwidXNlcl9uYW1lIjoib2xpdmVyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYxNjU0NDQ3OSwiYXV0aG9yaXRpZXMiOlsiQWRtaW4iXSwianRpIjoiNDllZTVmNGItZTY4YS00MmI4LWJjODAtZDgyZmFjMDZjNWUyIiwiY2xpZW50X2lkIjoic2VjdXJlY3J1ZCJ9.eyjrU-zkjW7T-ToE812rD6GSrtR2bGNwRNPt7F0AnMM",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/usuarios/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"documento\": \"10000078\",\r\n        \"nombre\": \"Maroc\",\r\n        \"nick\": \"marco\",\r\n        \"clave\": \"4321\",\r\n        \"estado\": true,\r\n        \"rol\": {\r\n            \"idrol\": 2\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/usuarios/delete/3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
